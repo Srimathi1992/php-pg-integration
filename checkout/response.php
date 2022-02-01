@@ -11,7 +11,7 @@
 	<h1 align="center">PG Response</h1>	
 
 	<?php  
-		 $secretkey = "<YOUR_SECRET_KEY_HERE>";
+		
 		 $orderId = $_POST["orderId"];
 		 $orderAmount = $_POST["orderAmount"];
 		 $referenceId = $_POST["referenceId"];
@@ -19,12 +19,8 @@
 		 $paymentMode = $_POST["paymentMode"];
 		 $txMsg = $_POST["txMsg"];
 		 $txTime = $_POST["txTime"];
-		 $signature = $_POST["signature"];
 		 $data = $orderId.$orderAmount.$referenceId.$txStatus.$paymentMode.$txMsg.$txTime;
-		 $hash_hmac = hash_hmac('sha256', $data, $secretkey, true) ;
-		 $computedSignature = base64_encode($hash_hmac);
-		 if ($signature == $computedSignature) {
-	 ?>
+		 	 ?>
 	<div class="container"> 
 	<div class="panel panel-success">
 	  <div class="panel-heading">Signature Verification Successful</div>
